@@ -89,9 +89,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .nav-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  position: relative;
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
@@ -99,9 +99,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .nav-brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  grid-column: 2;
+  text-align: center;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.1rem;
@@ -111,6 +110,8 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-brand:hover { text-decoration: none; color: var(--primary); }
 
 .nav-links {
+  grid-column: 1;
+  justify-self: start;
   display: flex;
   list-style: none;
   padding: 0;
@@ -136,6 +137,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Mobile hamburger */
 .nav-toggle {
+  grid-column: 1;
+  justify-self: start;
   display: none;
   background: none;
   border: none;
@@ -589,6 +592,7 @@ footer a { color: var(--primary); }
 /* ===== RESPONSIVE — MOBILE ===== */
 @media (max-width: 640px) {
   .nav-links {
+    grid-column: 1 / -1;
     display: none;
     flex-direction: column;
     position: absolute;
