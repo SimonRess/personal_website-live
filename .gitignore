@@ -1,7 +1,7 @@
 # Internal project files — never commit
 raw_index.html
-SETUP.md
-DEPLOYMENT.md
+PROJECT.md
+INFRASTRUCTURE.md
 
 # Downloaded media (not part of source)
 assets/media/certificates/
