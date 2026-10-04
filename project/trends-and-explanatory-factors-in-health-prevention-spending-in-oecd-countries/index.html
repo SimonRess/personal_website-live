@@ -13,16 +13,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css"
         integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg=="
         crossorigin="anonymous">
+  <!-- Theme: apply saved/OS preference before first paint (no flash). See docs/style-guide.md §10 -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') || 'auto';
+        if (t === 'dark' || (t === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
   <!-- NAVBAR -->
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a class="nav-brand" href="../../index.html#about">Simon Ress</a>
-      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <i class="fas fa-bars"></i>
+
+      <!-- Hamburger button (visible below 992px only) -->
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
+
+      <!-- Brand / site title -->
+      <a class="nav-brand" href="../../index.html#about">Simon Ress</a>
+
+      <!-- Navigation tabs -->
       <ul class="nav-links" id="nav-links">
         <li><a href="../../index.html#about">Home</a></li>
         <li><a href="../../index.html#experience">Experience</a></li>
@@ -32,6 +50,19 @@
         <li><a href="../../index.html#featured">Publications</a></li>
         <li><a href="../../index.html#contact">Contact</a></li>
       </ul>
+
+      <!-- Theme switcher: Light / Dark / Automatic -->
+      <div class="theme-dropdown">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Display preferences" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        <div class="theme-menu" id="theme-menu" hidden>
+          <button type="button" data-theme="light">Light</button>
+          <button type="button" data-theme="dark">Dark</button>
+          <button type="button" data-theme="auto">Automatic</button>
+        </div>
+      </div>
+
     </div>
   </nav>
 
